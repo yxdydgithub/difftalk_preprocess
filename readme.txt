@@ -1,6 +1,4 @@
-conda activate 3d
 
-1. data preprocessing
 1) 视频帧率转为25fps: sh preprocess/0_change_fps.sh 
 2) 提取每一帧图像（images），及对应的音频（audio_wav）：python3 preprocess/1_extract_frame_audio.py 
 3）使用deepspeech从.wav提取特征，保存为npy（audio_ds）：python3 preprocess/audio/deepspeech_features/extract_ds_features.py --input data/HDTF/audio_wav --output data/HDTF/audio_smooth 注意需要修改deepspeech_features.py中的target_sample_rate = 22000，video_fps参照voca应该设置为60，显示维度信息（1, 16, 29）, 提示frame length (550) is greater than FFT size (512), frame will be truncated, 目前没发现对结果有影响。
